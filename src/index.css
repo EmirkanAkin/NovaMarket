@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4f46e5;
+  --color-background-site: #F8F9FD;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  body {
+    @apply antialiased bg-[#F8F9FD] text-[#0f172a] dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Scrollbar genel ayarları */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-900 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-indigo-500/50 dark:bg-indigo-500/30 rounded-full hover:bg-indigo-500 dark:hover:bg-indigo-500/50 transition-colors;
+  }
+}
+
+@layer components {
+  /* Scrollbar kalsın, o güzel bir detay */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 10px;
+  }
+
+  ::selection {
+    @apply bg-indigo-100 text-indigo-900 dark:bg-indigo-900/50 dark:text-indigo-100;
+  }
+}
