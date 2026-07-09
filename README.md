@@ -14,24 +14,11 @@
   gerçek zamanlı veritabanı ve canlı destek sistemi içeren modern bir e-ticaret deneyimi.
 </p>
 
-<br/>
-
----
-
-## 📋 İçindekiler
-
-- [Proje Hakkında](#-proje-hakkında)
-- [Öne Çıkan Özellikler](#-öne-çıkan-özellikler)
-- [Teknoloji Yığını](#-teknoloji-yığını)
-- [Proje Mimarisi](#-proje-mimarisi)
-- [Kurulum](#-kurulum)
-- [Sayfa ve Rotalar](#-sayfa-ve-rotalar)
-- [Context Yapısı](#-context-yapısı)
-- [Firebase Entegrasyonu](#-firebase-entegrasyonu)
-- [Admin Paneli](#-admin-paneli)
-- [Ekran Görüntüleri](#-ekran-görüntüleri)
-- [Katkıda Bulunma](#-katkıda-bulunma)
-- [Lisans](#-lisans)
+<p align="center">
+  <a href="https://nova-market-jet.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Canlı_Demo-nova--market--jet.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
+  </a>
+</p>
 
 ---
 
@@ -54,285 +41,82 @@ Proje; kullanıcı kimlik doğrulama, gerçek zamanlı sepet yönetimi, sipariş
 ## 🎯 Öne Çıkan Özellikler
 
 ### 🛍️ Müşteri Tarafı
-| Özellik | Açıklama |
-|---|---|
-| **Ürün Listeleme & Filtreleme** | Kategori, fiyat aralığı ve arama ile dinamik filtreleme |
-| **Ürün Detay Sayfası** | Büyük görsel, yıldız puanlama, yorum sistemi |
-| **Alışveriş Sepeti** | Gerçek zamanlı (Firestore) sepet senkronizasyonu, drawer bileşeni |
-| **Güvenli Ödeme** | Kart numarası formatlama, sipariş özeti, SSL göstergesi |
-| **Favoriler** | LocalStorage tabanlı favori listesi, anlık toast bildirimleri |
-| **Sipariş Takibi** | 4 aşamalı görsel ilerleme çubuğu (Sipariş Alındı → Teslim Edildi) |
-| **Kullanıcı Profili** | Seviye/XP sistemi, harcama istatistikleri, hesap güvenliği |
-| **Nova Bonus Cüzdanı** | Alışverişlerde %2 bonus kazanımı, canlı bakiye gösterimi |
-| **Canlı Destek** | Gerçek zamanlı sohbet widget'ı, otomatik bot + temsilci desteği |
-| **Destek Merkezi** | SSS (accordion), iletişim kanalları, kategori bazlı yardım |
+- **Ürün Listeleme & Filtreleme** — Kategori, fiyat aralığı ve arama ile dinamik filtreleme
+- **Alışveriş Sepeti** — Gerçek zamanlı Firestore senkronizasyonu
+- **Güvenli Ödeme** — Kart numarası formatlama, sipariş özeti, SSL göstergesi
+- **Sipariş Takibi** — 4 aşamalı görsel ilerleme çubuğu (Sipariş Alındı → Teslim Edildi)
+- **Kullanıcı Profili** — Seviye/XP sistemi, harcama istatistikleri
+- **Nova Bonus Cüzdanı** — Alışverişlerde %2 bonus kazanımı
+- **Canlı Destek** — Gerçek zamanlı sohbet widget'ı, otomatik bot + temsilci desteği
+- **Favoriler & Yorum Sistemi** — Favori listesi, yıldız puanlama ve ürün yorumları
 
 ### 🔐 Yönetim Paneli
-| Özellik | Açıklama |
-|---|---|
-| **Envanter Yönetimi** | Ürün ekleme/silme, kategori seçimi, fiyat formatlama |
-| **Sipariş Takibi** | Tüm siparişleri görüntüleme, durum güncelleme |
-| **Canlı Sohbet Yönetimi** | Müşteri sohbetlerini takip etme, yanıtlama, çözüldü işaretleme |
-| **Gelir Özeti** | Toplam ciro ve sipariş sayısı dashboard kartları |
+- **Envanter Yönetimi** — Ürün CRUD işlemleri, kategori ve fiyat yönetimi
+- **Sipariş Takibi** — Durum güncelleme, ciro ve sipariş dashboard'u
+- **Canlı Sohbet Yönetimi** — Müşteri sohbetlerini takip etme ve yanıtlama
 
 ---
 
 ## 🧰 Teknoloji Yığını
 
-### Çekirdek
-| Teknoloji | Versiyon | Kullanım Amacı |
-|---|---|---|
-| [React](https://react.dev) | `19.2` | Kullanıcı arayüzü bileşen mimarisi |
-| [Vite](https://vite.dev) | `8.0` | Lightning-fast geliştirme sunucusu ve bundler |
-| [React Router DOM](https://reactrouter.com) | `7.13` | Client-side routing ve nested layout'lar |
-
-### Backend & Veritabanı
-| Teknoloji | Versiyon | Kullanım Amacı |
-|---|---|---|
-| [Firebase Auth](https://firebase.google.com/docs/auth) | `12.11` | E-posta / şifre kimlik doğrulama |
-| [Cloud Firestore](https://firebase.google.com/docs/firestore) | `12.11` | Gerçek zamanlı NoSQL veritabanı |
-
-### UI & Stil
-| Teknoloji | Versiyon | Kullanım Amacı |
-|---|---|---|
-| [TailwindCSS](https://tailwindcss.com) | `4.2` | Utility-first CSS framework |
-| [Framer Motion](https://www.framer.com/motion) | `12.38` | Sayfa geçişleri ve micro-animasyonlar |
-| [Heroicons](https://heroicons.com) | `2.2` | SVG ikon seti (outline & solid) |
-| [Headless UI](https://headlessui.com) | `2.2` | Erişilebilir UI bileşenleri |
-| [Swiper](https://swiperjs.com) | `12.1` | Dokunmatik slider / carousel |
-
-### Yardımcı Kütüphaneler
-| Teknoloji | Kullanım Amacı |
+| Katman | Teknolojiler |
 |---|---|
-| [react-hot-toast](https://react-hot-toast.com) | Şık bildirim toast mesajları |
-| [react-google-recaptcha](https://www.npmjs.com/package/react-google-recaptcha) | Form güvenliği |
+| **Frontend** | React 19, React Router v7, Framer Motion |
+| **Styling** | TailwindCSS v4, Headless UI, Heroicons |
+| **Backend** | Firebase Auth, Cloud Firestore (realtime) |
+| **Build** | Vite 8, PostCSS, ESLint |
+| **Deploy** | Vercel |
+| **Diğer** | Swiper, react-hot-toast, reCAPTCHA |
 
 ---
 
 ## 🏗 Proje Mimarisi
 
 ```
-NovaMarket/
-├── public/
-│   ├── favicon.svg          # Site ikonu
-│   ├── icons.svg            # SVG sprite sheet
-│   ├── robots.txt           # SEO — Arama motoru yönergeleri
-│   └── sitemap.xml          # SEO — Site haritası
+src/
+├── components/          # 15 yeniden kullanılabilir UI bileşeni
+│   ├── Navbar.jsx       # Navigasyon + kullanıcı menüsü
+│   ├── CartDrawer.jsx   # Sepet slide-over drawer
+│   ├── ChatWidget.jsx   # Canlı destek sohbet widget'ı
+│   ├── ProductCard.jsx  # Ürün kartı (favori, sepet, puan)
+│   ├── HeroBanner.jsx   # Hero banner + geri sayım
+│   └── ...
 │
-├── src/
-│   ├── assets/
-│   │   └── hero.png         # Hero banner görseli
-│   │
-│   ├── components/          # Yeniden kullanılabilir UI bileşenleri
-│   │   ├── AdminRoute.jsx   # Admin erişim koruması (route guard)
-│   │   ├── BottomNav.jsx    # Mobil alt navigasyon barı
-│   │   ├── CartDrawer.jsx   # Sepet yan panel (slide-over drawer)
-│   │   ├── CategoryCircles.jsx # Kategori dairesel navigasyon
-│   │   ├── ChatWidget.jsx   # Canlı destek sohbet widget'ı
-│   │   ├── Footer.jsx       # Site alt bilgi bölümü
-│   │   ├── HeroBanner.jsx   # Ana sayfa hero banner + geri sayım
-│   │   ├── Layout.jsx       # Genel sayfa düzeni (Navbar + Footer)
-│   │   ├── Navbar.jsx       # Üst navigasyon çubuğu + kullanıcı menüsü
-│   │   ├── OrderStatus.jsx  # 4 aşamalı sipariş ilerleme göstergesi
-│   │   ├── PageTransition.jsx # Framer Motion sayfa geçiş wrapper'ı
-│   │   ├── ProductCard.jsx  # Ürün kartı (favori, sepet, puan)
-│   │   ├── ScrollToTop.jsx  # Rota değişiminde sayfa başına kaydırma
-│   │   ├── SkeletonCard.jsx # Yükleme durumu iskelet kartı
-│   │   └── Wallet.jsx       # Navbar cüzdan bakiye göstergesi
-│   │
-│   ├── contexts/            # React Context API — Global State
-│   │   ├── AuthContext.jsx  # Kimlik doğrulama durumu
-│   │   ├── CartContext.jsx  # Sepet yönetimi (Firestore senkronize)
-│   │   ├── ThemeContext.jsx # Koyu / Açık tema yönetimi
-│   │   └── WishlistContext.jsx # Favori listesi (LocalStorage)
-│   │
-│   ├── firebase/
-│   │   └── firebase.js      # Firebase yapılandırma ve servis export'ları
-│   │
-│   ├── pages/               # Rota bileşenleri (Lazy loaded)
-│   │   ├── Admin.jsx        # Yönetim paneli (Ürün/Sipariş/Sohbet)
-│   │   ├── AdminOrders.jsx  # Admin sipariş yönetimi
-│   │   ├── Cart.jsx         # Alışveriş sepeti sayfası
-│   │   ├── Checkout.jsx     # Ödeme sayfası
-│   │   ├── Favorites.jsx    # Favori ürünler
-│   │   ├── Home.jsx         # Ana sayfa (Listeleme + Filtreleme)
-│   │   ├── Login.jsx        # Kullanıcı girişi
-│   │   ├── NotFound.jsx     # 404 hata sayfası
-│   │   ├── Orders.jsx       # Sipariş geçmişi ve takibi
-│   │   ├── Privacy.jsx      # Gizlilik politikası
-│   │   ├── ProductDetail.jsx # Ürün detay ve yorum sayfası
-│   │   ├── Profile.jsx      # Kullanıcı profili + seviye sistemi
-│   │   ├── Register.jsx     # Yeni kullanıcı kaydı
-│   │   ├── Support.jsx      # Destek merkezi ve SSS
-│   │   └── Terms.jsx        # Kullanım koşulları
-│   │
-│   ├── utils/
-│   │   └── seedData.js      # 150 adet örnek ürün verisi üreteci
-│   │
-│   ├── AnimatedRoutes.jsx   # AnimatePresence + lazy route tanımları
-│   ├── App.jsx              # Uygulama kök bileşeni
-│   ├── index.css            # TailwindCSS v4 yapılandırması + özel stiller
-│   └── main.jsx             # React DOM render + Context provider'lar
+├── contexts/            # React Context API — Global State
+│   ├── AuthContext.jsx  # Firebase Auth oturum yönetimi
+│   ├── CartContext.jsx  # Firestore realtime sepet
+│   ├── ThemeContext.jsx # Dark / Light tema
+│   └── WishlistContext.jsx
 │
-├── .gitignore
-├── index.html               # HTML giriş noktası + SEO meta etiketleri
-├── package.json
-├── postcss.config.js
-└── vite.config.js
+├── pages/               # 15 sayfa (React.lazy ile lazy loaded)
+│   ├── Home.jsx         # Ana sayfa + filtreleme
+│   ├── ProductDetail.jsx # Ürün detay + yorumlar
+│   ├── Checkout.jsx     # Ödeme akışı
+│   ├── Profile.jsx      # Profil + seviye sistemi
+│   ├── Admin.jsx        # Yönetim paneli
+│   └── ...
+│
+├── firebase/            # Firebase yapılandırması
+├── utils/               # Yardımcı fonksiyonlar
+├── App.jsx              # Kök bileşen
+└── AnimatedRoutes.jsx   # AnimatePresence + route tanımları
 ```
 
 ---
 
 ## ⚙ Kurulum
 
-### Ön Koşullar
-
-- **Node.js** v18 veya üzeri — [nodejs.org](https://nodejs.org) adresinden LTS sürümünü indirin
-- **Git** — [git-scm.com](https://git-scm.com)
-
-### Adımlar
-
 ```bash
-# 1. Repoyu klonlayın
 git clone https://github.com/kullanici-adi/NovaMarket.git
-
-# 2. Proje dizinine gidin
 cd NovaMarket
-
-# 3. Bağımlılıkları yükleyin
 npm install
-
-# 4. Geliştirme sunucusunu başlatın
-npm run dev
+cp .env.example .env     # Firebase bilgilerinizi girin
+npm run dev              # → http://localhost:5173
 ```
 
-Tarayıcıda **http://localhost:5173** adresine giderek uygulamayı görüntüleyebilirsiniz.
-
-### Kullanılabilir Scriptler
-
-| Script | Komut | Açıklama |
-|---|---|---|
-| Geliştirme | `npm run dev` | Vite dev server (HMR aktif) |
-| Derleme | `npm run build` | Production build oluşturma |
-| Önizleme | `npm run preview` | Build çıktısını önizleme |
-| Lint | `npm run lint` | ESLint kod analizi |
+> 📌 Firebase yapılandırması için `.env.example` dosyasındaki alanları kendi [Firebase Console](https://console.firebase.google.com) bilgilerinizle doldurun.
 
 ---
-
-## 🗺 Sayfa ve Rotalar
-
-| Rota | Sayfa | Açıklama |
-|---|---|---|
-| `/` | Ana Sayfa | Ürün listeleme, kategori filtreleme, hero banner |
-| `/product/:id` | Ürün Detay | Ürün görseli, açıklama, yorum yazma ve okuma |
-| `/cart` | Sepet | Sepetteki ürünler, adet güncelleme, toplam hesaplama |
-| `/checkout` | Ödeme | Teslimat bilgileri, kart formu, sipariş özeti |
-| `/favorites` | Favoriler | Favori olarak işaretlenen ürünler |
-| `/orders` | Siparişlerim | Sipariş geçmişi ve 4 aşamalı durum takibi |
-| `/profile` | Profil | Kullanıcı bilgileri, seviye sistemi, hesap ayarları |
-| `/support` | Destek | Yardım merkezi, SSS, canlı destek başlatma |
-| `/login` | Giriş | Firebase e-posta/şifre ile oturum açma |
-| `/register` | Kayıt Ol | Yeni kullanıcı hesabı oluşturma |
-| `/admin` | Yönetim Paneli | Envanter, sipariş ve sohbet yönetimi |
-| `/admin/orders` | Sipariş Yönetimi | Detaylı admin sipariş takibi |
-| `/privacy` | Gizlilik Politikası | KVKK ve gizlilik metni |
-| `/terms` | Kullanım Koşulları | Platform kullanım şartları |
-| `*` | 404 | Sayfa bulunamadı hatası |
-
-> 📌 Tüm sayfa bileşenleri `React.lazy()` ile **code splitting** kullanarak yüklenir. Sayfa geçişleri `AnimatePresence` (Framer Motion) ile animasyonlandırılmıştır.
-
----
-
-## 🔄 Context Yapısı
-
-Uygulama genelinde durum yönetimi **React Context API** ile sağlanmaktadır:
-
-```
-ThemeProvider          → Tema durumu (dark/light)
-  └── AuthProvider     → Firebase Auth oturum durumu
-      └── CartProvider → Sepet verileri (Firestore realtime)
-          └── WishlistProvider → Favori listesi (LocalStorage)
-              └── App
-```
-
-| Context | Dosya | Özellikler |
-|---|---|---|
-| `AuthContext` | `contexts/AuthContext.jsx` | `currentUser`, `signup`, `login`, `logout` |
-| `CartContext` | `contexts/CartContext.jsx` | `cartItems`, `totalItems`, `cartTotal`, `addToCart`, `updateQuantity`, `removeFromCart`, `clearCart` |
-| `ThemeContext` | `contexts/ThemeContext.jsx` | `isDarkMode`, `toggleTheme` |
-| `WishlistContext` | `contexts/WishlistContext.jsx` | `wishlist`, `toggleWishlist`, `isInWishlist` |
-
----
-
-## 🔥 Firebase Entegrasyonu
-
-Proje aşağıdaki Firebase servislerini kullanmaktadır:
-
-### Firebase Authentication
-- E-posta / şifre ile kullanıcı kaydı ve giriş
-- `onAuthStateChanged` ile anlık oturum takibi
-- Profil güncelleme ve şifre değiştirme
-
-### Cloud Firestore Koleksiyonları
-
-| Koleksiyon | Açıklama | Gerçek Zamanlı |
-|---|---|---|
-| `products` | Ürün verileri (isim, fiyat, görsel, kategori, açıklama) | ❌ |
-| `carts` | Kullanıcı sepetleri (`users/{uid}` yapısında) | ✅ `onSnapshot` |
-| `orders` | Sipariş kayıtları ve durumları | ❌ |
-| `reviews` | Ürün yorumları ve puanlamaları | ❌ |
-| `users` | Kullanıcı profilleri ve cüzdan bakiyeleri | ✅ `onSnapshot` |
-| `live_chats` | Canlı destek sohbet mesajları | ✅ `onSnapshot` |
-| `chat_sessions` | Sohbet oturumu durumları (çözüldü/aktif) | ✅ `onSnapshot` |
-
-### Firebase Yapılandırması
-
-Proje, Firebase bilgilerini güvenli bir şekilde **ortam değişkenleri** (environment variables) üzerinden okumaktadır. Kurulum adımları:
-
-1. Proje kök dizinindeki `.env.example` dosyasını `.env` olarak kopyalayın:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. `.env` dosyasındaki değerleri kendi Firebase Console bilgilerinizle doldurun:
-   ```env
-   VITE_FIREBASE_API_KEY=your_api_key_here
-   VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-   VITE_FIREBASE_PROJECT_ID=your_project_id
-   VITE_FIREBASE_STORAGE_BUCKET=your_project.firebasestorage.app
-   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-   VITE_FIREBASE_APP_ID=your_app_id
-   ```
-
-3. `src/firebase/firebase.js` dosyası bu değişkenleri otomatik olarak `import.meta.env` üzerinden okuyacaktır.
-
-> ✅ **Güvenlik:** `.env` dosyası `.gitignore`'da yer aldığı için GitHub'a **asla yüklenmez**. Yalnızca `.env.example` (boş şablon) repoda bulunur.
-
----
-
-## 🛠 Admin Paneli
-
-Admin paneline `/admin` rotası üzerinden erişilebilir. Panel üç ana sekmeden oluşmaktadır:
-
-### 1. Envanter Yönetimi
-- Yeni ürün ekleme formu (başlık, fiyat, görsel URL, kategori, açıklama)
-- Mevcut ürünleri listeleme ve silme
-- Otomatik fiyat formatlama (Türk Lirası)
-- 6 kategori desteği: Bilgisayar, Akıllı Telefon, Oyuncu Ekipmanı, Monitör & Ekran, Akıllı Saat, Aksesuar
-
-### 2. Sipariş Takibi
-- Tüm siparişlerin tarih sıralı listesi
-- Sipariş durumu güncelleme (Sipariş Alındı → Hazırlanıyor → Kargoda → Teslim Edildi)
-- Sipariş tutarı ve kullanıcı bilgileri
-- Toplam ciro ve sipariş sayısı dashboard kartları
-
-### 3. Destek Talepleri (Canlı Sohbet)
-- Gerçek zamanlı müşteri sohbet odaları
-- Sohbet geçmişi görüntüleme
-- Müşteriye yanıt gönderme
-- Talebi "Çözüldü" olarak işaretleme / tekrar açma
-- Sohbet odasını silme
-- Bot yanıtları ve gerçek temsilci ayrımı
 
 <p align="center">
   <sub>NovaMarket ile geleceğin alışveriş deneyimini bugünden yaşayın. 🚀</sub>
